@@ -26,6 +26,7 @@ classes/*
 *.iws
 *.iml
 *.ipr
+/target/
 /out/
 .DS_Store
 src/.DS_Store
