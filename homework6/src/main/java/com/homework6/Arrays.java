@@ -4,30 +4,30 @@ package com.homework6;
 public class Arrays {
     public static void main(String[] args) {
 
-//        //task1
-//        int[] arr = {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
-//        for (int i = 0; i < arr.length; i++) {
-//            System.out.print(arr[i] + " ");
-//        }
-//        System.out.println();
-//
-//        for (int i = 0; i < arr.length; i++) {
-//            System.out.println(arr[i]);
-//        }
-//
-//        //task2
-//        int[] arr2 = new int[51];
-//        for (int i = 1; i < arr2.length; i++) {
-//            arr2[i] = 2 * i - 1;
-//            System.out.print(arr2[i] + " ");
-//        }
-//        System.out.println();
-//
-//        for (int i = arr2.length - 1; i >= 1; i--) {
-//            arr2[i] = 2 * i - 1;
-//            System.out.print(arr2[i] + " ");
-//        }
-//        System.out.println();
+        //task1
+        int[] arr = {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+
+        //task2
+        int[] arr2 = new int[51];
+        for (int i = 1; i < arr2.length; i++) {
+            arr2[i] = 2 * i - 1;
+            System.out.print(arr2[i] + " ");
+        }
+        System.out.println();
+
+        for (int i = arr2.length - 1; i >= 1; i--) {
+            arr2[i] = 2 * i - 1;
+            System.out.print(arr2[i] + " ");
+        }
+        System.out.println();
 
         //task3
         // переменные sum1 и sum2 - среднее арифметическое массивов
