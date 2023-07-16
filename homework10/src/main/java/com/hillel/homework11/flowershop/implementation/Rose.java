@@ -1,21 +1,20 @@
-package com.hillel.homework11.flowershop.implementation;
+package com.hillel.homework11.flowershop;
 
-import com.hillel.homework11.flowershop.interfaces.Florist;
-import com.hillel.homework11.flowershop.enums.DeliveryEnums;
-
-public class Rose extends Flower implements Florist {
+public class Rose extends Flower {
     private String sort;
     private Boolean withNeedles;
     int length;
 
-    public Rose(int price, String name, String type, String colour, String sort, Boolean withNeedles, DeliveryEnums delivery) {
-        super(price, name, type, colour, delivery);
+
+    public Rose(int price, String name, String type, String colour, String sort, Boolean withNeedles,
+                int quantity) {
+        super(price, name, type, colour, quantity);
         this.sort = sort;
         this.withNeedles = withNeedles;
     }
-
-    public Rose(int price, String name, String type, String colour, String sort, DeliveryEnums delivery) {
-        super(price, name, type, colour, delivery);
+// конструктор для букетов
+    public Rose(int price, String name, String type, String colour, String sort, int quantity) {
+        super(price, name, type, colour, quantity);
         this.sort = sort;
     }
 
@@ -32,7 +31,6 @@ public class Rose extends Flower implements Florist {
     public int getLength() {
         return length;
     }
-
 
     public void setSort(String sort) {
         if (sort != null) {
@@ -51,9 +49,19 @@ public class Rose extends Flower implements Florist {
     }
 
     @Override
-    public int sendFlowers() {
-        int i;
-        i = getPrice() + getDelivery().getValue();
-        return i;
+    public int calculatePrice() {
+        int a = getPrice();
+        int b = getQuantity();
+        int price = a * b;
+        setPrice(price);
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return "Роза. " +
+                " сорт: " + sort +
+                ", стоимость: " + getPrice() +
+                ", колючая " + true;
     }
 }
