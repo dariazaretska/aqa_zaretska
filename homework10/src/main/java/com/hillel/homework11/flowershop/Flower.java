@@ -1,24 +1,17 @@
 package com.hillel.homework11.flowershop;
 
-public class Flower {
+public abstract class Flower {
     private int price;
     private String name;
     private String type;
     private String colour;
+    private int quantity;
 
-// конструтор для горшочных цветов
-    public Flower(int price, String name, String type) {
+    public Flower(int price, String name, String type, String colour, int quantity) {
         this.price = price;
         this.name = name;
         this.type = type;
-    }
-
-//конструктор для срезанных цветов
-    public Flower(int price, String name, String type, String colour) {
-        this.price = price;
-        this.name = name;
-        this.type = type;
-        this.colour = colour;
+        this.quantity = quantity;
     }
 
     public Flower(){}
@@ -37,6 +30,10 @@ public class Flower {
 
     public String getColour() {
         return colour;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 
     public void setPrice(int price) {
@@ -62,4 +59,13 @@ public class Flower {
             this.colour = colour;
         }
     }
+
+    public void setQuantity(int quantity) {
+        if (quantity > 0) {
+            this.quantity = quantity;
+        }
+    }
+
+    public abstract int calculatePrice();
+
 }

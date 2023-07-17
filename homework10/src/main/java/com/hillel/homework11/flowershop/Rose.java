@@ -5,14 +5,16 @@ public class Rose extends Flower {
     private Boolean withNeedles;
     int length;
 
-    public Rose(int price, String name, String type, String colour, String sort, Boolean withNeedles) {
-        super(price, name, type, colour);
+
+    public Rose(int price, String name, String type, String colour, String sort, Boolean withNeedles,
+                int quantity) {
+        super(price, name, type, colour, quantity);
         this.sort = sort;
         this.withNeedles = withNeedles;
     }
-
-    public Rose(int price, String name, String type, String colour, String sort) {
-        super(price, name, type, colour);
+// конструктор для букетов
+    public Rose(int price, String name, String type, String colour, String sort, int quantity) {
+        super(price, name, type, colour, quantity);
         this.sort = sort;
     }
 
@@ -44,5 +46,22 @@ public class Rose extends Flower {
         if (length > 0) {
             this.length = length;
         }
+    }
+
+    @Override
+    public int calculatePrice() {
+        int a = getPrice();
+        int b = getQuantity();
+        int price = a * b;
+        setPrice(price);
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return "Роза. " +
+                " сорт: " + sort +
+                ", стоимость: " + getPrice() +
+                ", колючая " + true;
     }
 }
