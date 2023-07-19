@@ -1,17 +1,29 @@
-package com.hillel.homework11.flowershop;
+package com.hillel.homework11.flowershop.implementation;
 
-public abstract class Flower {
+import com.hillel.homework11.flowershop.enums.DeliveryEnums;
+
+public class Flower {
     private int price;
     private String name;
     private String type;
     private String colour;
-    private int quantity;
+    private DeliveryEnums delivery;
 
-    public Flower(int price, String name, String type, String colour, int quantity) {
+// конструтор для горшочных цветов
+    public Flower(int price, String name, String type, DeliveryEnums delivery) {
         this.price = price;
         this.name = name;
         this.type = type;
-        this.quantity = quantity;
+        this.delivery = delivery;
+    }
+
+//конструктор для срезанных цветов
+    public Flower(int price, String name, String type, String colour, DeliveryEnums delivery) {
+        this.price = price;
+        this.name = name;
+        this.type = type;
+        this.colour = colour;
+        this.delivery = delivery;
     }
 
     public Flower(){}
@@ -32,8 +44,11 @@ public abstract class Flower {
         return colour;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public DeliveryEnums getDelivery()  {
+        if (delivery != null) {
+            this.delivery = delivery;
+        }
+        return delivery;
     }
 
     public void setPrice(int price) {
@@ -60,12 +75,7 @@ public abstract class Flower {
         }
     }
 
-    public void setQuantity(int quantity) {
-        if (quantity > 0) {
-            this.quantity = quantity;
-        }
+    public void setDelivery(DeliveryEnums delivery) {
+        this.delivery = delivery;
     }
-
-    public abstract int calculatePrice();
-
 }
