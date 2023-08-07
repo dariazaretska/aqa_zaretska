@@ -1,5 +1,7 @@
 package com.hillel.homework16;
 
+import java.util.Objects;
+
 public class Product {
     private String name;
     private double price;
@@ -36,4 +38,13 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return Double.compare(product.price, price) == 0 && Objects.equals(name, product.name);
+    }
+
 }

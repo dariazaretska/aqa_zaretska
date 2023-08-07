@@ -1,12 +1,15 @@
 package com.hillel.homework16;
 
+import com.hillel.homework16.comparator.ProductComparatorByName;
+import com.hillel.homework16.comparator.ProductComparatorByPrice;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 public class ProductMarket {
     private List<Product> products;
-
     public ProductMarket(List<Product> products) {
         this.products = new ArrayList<>(products);
     }
@@ -14,7 +17,7 @@ public class ProductMarket {
     public List<String> getAllProductNames() {
         List<String> names = new ArrayList<>();
         for (Product product : products) {
-            names.add(product.getName());
+            names.add(String.valueOf(product.getClass()));
         }
         return names;
     }
@@ -52,4 +55,17 @@ public class ProductMarket {
         }
         return prices;
     }
+
+    public List<Product> sortProductsByName(){
+        List<Product> sortedProductsName = new ArrayList<>(products);
+        Collections.sort(sortedProductsName, new ProductComparatorByName());
+        return sortedProductsName;
+    }
+
+    public List<Product> sortProductsByPrice(){
+        List<Product> sortedProductsPrice = new ArrayList<>(products);
+        Collections.sort(sortedProductsPrice, new ProductComparatorByPrice());
+        return sortedProductsPrice;
+    }
+
 }

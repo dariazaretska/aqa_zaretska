@@ -20,5 +20,12 @@ public class Demo {
         System.out.println("Products with price greater than 10: " + market.getProductsGreaterThan10());
         System.out.println("Products with price less than 5: " + market.getProductsLessThan5());
         System.out.println("All prices as strings: " + market.getAllPricesAsString());
+
+        //comparator
+        List<Product> sortedProducts = market.sortProductsByPrice();
+        System.out.println("Products sorted by price: " + sortedProducts);
+
+        List<Product> sortedByNameProducts = market.sortProductsByName();
+        System.out.println("Products sorted by name: " + sortedByNameProducts);
     }
 }
