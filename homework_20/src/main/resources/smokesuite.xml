@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="smoke suite for calculator">
+    
+    <test name="functional tests">
+        <classes>
+            <class name ="com.hillel.homework20.CalculatorTest"/>
+        </classes>
+    </test>
+
+</suite>

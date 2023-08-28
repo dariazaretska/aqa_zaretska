@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="smoke suite for calculator">
+
+    <test name="summ tests">
+        <classes>
+            <class name="com.hillel.homework20.CalculatorTest">
+                <methods>
+                    <include name="init"/>
+                    <include name="clearInputBeforeTest"/>
+                    <include name="testSumm"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
