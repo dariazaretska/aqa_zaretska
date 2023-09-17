@@ -3,6 +3,7 @@ package pageobjectpattern.netaporter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SignInPage extends AbstractPage {
 
@@ -35,7 +36,7 @@ public class SignInPage extends AbstractPage {
     }
 
     public WebElement getEMAIL_FILLED() {
-        return getDriver().findElement(EMAIL_FILLED);
+        return driverWait.until(ExpectedConditions.visibilityOfElementLocated(EMAIL_FILLED));
     }
 
     public WebElement getPASSWORD_TITLE() {
@@ -43,7 +44,7 @@ public class SignInPage extends AbstractPage {
     }
 
     public WebElement getPASSWORD_FILLED() {
-        return getDriver().findElement(PASSWORD_FILLED);
+        return driverWait.until(ExpectedConditions.visibilityOfElementLocated(PASSWORD_FILLED));
     }
 
     public WebElement getPASSWORD_FORGOT() {
@@ -63,15 +64,15 @@ public class SignInPage extends AbstractPage {
     }
 
     public WebElement getLOGIN_ERROR() {
-        return getDriver().findElement(LOGIN_ERROR);
+        return driverWait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_ERROR));
     }
 
     public WebElement getPASSWORD_ERROR() {
-        return getDriver().findElement(PASSWORD_ERROR);
+        return driverWait.until(ExpectedConditions.visibilityOfElementLocated(PASSWORD_ERROR));
     }
 
     public WebElement getLOGIN_PASSWORD_ERROR() {
-        return getDriver().findElement(LOGIN_PASSWORD_ERROR);
+        return driverWait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_PASSWORD_ERROR));
     }
 
     public WebElement getACCEPT_ALL_COOKIES() {

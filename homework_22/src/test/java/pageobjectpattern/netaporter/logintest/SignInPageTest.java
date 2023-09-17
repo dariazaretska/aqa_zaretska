@@ -36,41 +36,36 @@ public class SignInPageTest {
     @Test
     public void textSignIn() {
         driver.get(baseUrl);
-        WebElement textSignIn = signInPage.getSIGN_IN_TITLE();
-        assertTrue(textSignIn.isDisplayed());
-        assertEquals(textSignIn.getText(), "Sign in");
+        assertTrue(signInFlow.isSignInTextDisplayed());
+        assertEquals(signInFlow.isSignInTextValid(), "Sign in");
     }
 
     @Test
     public void textEmail() {
         driver.get(baseUrl);
-        WebElement textEmail = signInPage.getEMAIL_TITLE();
-        assertTrue(textEmail.isDisplayed());
-        assertEquals(textEmail.getText(), "Email");
+        assertTrue(signInFlow.isEmailTextDisplayed());
+        assertEquals(signInFlow.isEmailTextValid(), "Email");
     }
 
     @Test
     public void textPassword() {
         driver.get(baseUrl);
-        WebElement textPassword = signInPage.getPASSWORD_TITLE();
-        assertTrue(textPassword.isDisplayed());
-        assertEquals(textPassword.getText(), "Password");
+        assertTrue(signInFlow.isPasswordTextDisplayed());
+        assertEquals(signInFlow.isPasswordTextValid(), "Password");
     }
 
     @Test
     public void textForgotYourPassword() {
         driver.get(baseUrl);
-        WebElement textForgotPassword = signInPage.getPASSWORD_FORGOT();
-        assertTrue(textForgotPassword.isDisplayed());
-        assertEquals(textForgotPassword.getText(), "Forgot your password?");
+        assertTrue(signInFlow.isForgotYourPasswordTextDisplayed());
+        assertEquals(signInFlow.isForgotYourPasswordTextValid(), "Forgot your password?");
     }
 
     @Test
     public void textDontHaveAccount() {
         driver.get(baseUrl);
-        WebElement textDontHaveAccount = signInPage.getNO_ACCOUNT_TITLE();
-        assertTrue(textDontHaveAccount.isDisplayed());
-        assertEquals(textDontHaveAccount.getText(), "Don't have an account?");
+        assertTrue(signInFlow.isDontHaveAccountTextDisplayed());
+        assertEquals(signInFlow.isDontHaveAccountTextValid(), "Don't have an account?");
     }
 
     @Test
@@ -94,53 +89,45 @@ public class SignInPageTest {
     }
 
     @Test
-    public void emptyLoginError() throws InterruptedException {
+    public void emptyLoginError() {
         driver.get(baseUrl);
         signInFlow.fillEmail("");
-        Thread.sleep(3000);
         WebElement loginButton = signInPage.getLOGIN_BUTTON();
         loginButton.click();
-        Thread.sleep(3000);
         WebElement loginError = signInPage.getLOGIN_ERROR();
         assertTrue(loginError.isDisplayed());
         assertEquals(loginError.getText(),"Email address is required");
     }
 
     @Test
-    public void emptyPasswordError() throws InterruptedException {
+    public void emptyPasswordError() {
         driver.get(baseUrl);
         signInFlow.fillPass("");
-        Thread.sleep(3000);
         WebElement loginButton = signInPage.getLOGIN_BUTTON();
         loginButton.click();
-        Thread.sleep(3000);
         WebElement passwordError = signInPage.getPASSWORD_ERROR();
         assertTrue(passwordError.isDisplayed());
         assertEquals(passwordError.getText(),"Password is required");
     }
     @Test
-    public void loginNegative() throws InterruptedException {
+    public void loginNegative() {
         driver.get(baseUrl);
         signInFlow.fillEmail("a@gmail.com");
-        Thread.sleep(3000);
         signInFlow.fillPass("fffff");
         WebElement loginButton = signInPage.getLOGIN_BUTTON();
         loginButton.click();
-        Thread.sleep(3000);
         WebElement loginPasswordError = signInPage.getLOGIN_PASSWORD_ERROR();
         assertTrue(loginPasswordError.isDisplayed());
         assertEquals(loginPasswordError.getText(),"Your email address and password don’t match, please try again");
     }
 
     @Test
-    public void loginHappyPath() throws InterruptedException {
+    public void loginHappyPath() {
         driver.get(baseUrl);
         signInFlow.fillEmail("daria.zaretskaya@gmail.com");
-        Thread.sleep(3000);
         signInFlow.fillPass("Aa1234567");
         WebElement loginButton = signInPage.getLOGIN_BUTTON();
         loginButton.click();
-        Thread.sleep(3000);
         String currentUrl = driver.getCurrentUrl();
         String expectedUrl = "https://www.net-a-porter.com/en-cz/account";
         assert currentUrl.equals(expectedUrl) : "URL не соответствует ожидаемому.";
